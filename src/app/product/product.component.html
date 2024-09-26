@@ -1,0 +1,14 @@
+<article *ngIf="listaVacia; else listaProductos">
+    <h3>Sin productos disponibles</h3>
+</article>
+
+<ng-template #listaProductos>
+    <div class="card card-body">
+        <h2 class="mb-3">Lista de productos</h2>
+        <ol>
+            <li *ngFor="let product of products">
+                <span [className]="(product.cantidad <=5)? 'stock-5': ''">{{ product.nombre + ' - ' + product.cantidad}}</span>
+            </li>
+        </ol>
+    </div>
+</ng-template>
